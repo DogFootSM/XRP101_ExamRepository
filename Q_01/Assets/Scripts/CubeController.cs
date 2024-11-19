@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CubeController : MonoBehaviour
 {
-    public Vector3 SetPoint { get; private set; }
+    //Private Set으로 되어 있어 값 할당이 불가하여 private 제거
+    public Vector3 SetPoint { get; set; }
 
     public void SetPosition()
     {
