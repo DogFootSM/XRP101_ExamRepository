@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (direction == Vector3.zero) return;
         
-        transform.Translate(_status.MoveSpeed * Time.deltaTime * direction);
+        //대각 이동 보정
+        transform.Translate(_status.MoveSpeed * Time.deltaTime * direction.normalized);
     }
 }
