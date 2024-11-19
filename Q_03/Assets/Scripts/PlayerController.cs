@@ -19,20 +19,22 @@ public class PlayerController : MonoBehaviour
     {
         _audio = GetComponent<AudioSource>();
     }
-    
+     
     public void TakeHit(int damage)
     {
         Hp -= damage;
 
         if (Hp <= 0)
-        {
+        { 
             Die();
         }
     }
-
+  
     public void Die()
-    {
-        _audio.Play();
-        gameObject.SetActive(false);
+    {  
+       SoundManager.Instance.GetClip(_audio.clip);
+       transform.parent.gameObject.SetActive(false); 
     }
+ 
+
 }

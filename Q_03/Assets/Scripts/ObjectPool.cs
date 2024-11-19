@@ -42,6 +42,7 @@ public class CustomObjectPool
 
     private PooledBehaviour AddObject()
     {
+        //ÃÑ¾Ë ÇÁ¸®ÆÕÀÇ PooledBehaviour
         PooledBehaviour target = MonoBehaviour.Instantiate(_pooledObject).GetComponent<PooledBehaviour>();
         target.Pool = _pool;
         _pool.Push(target);
