@@ -21,16 +21,22 @@ public class CubeManager : MonoBehaviour
 
     private void SetCubePosition(float x, float y, float z)
     {
+        //이동할 위치
         _cubeSetPoint.x = x;
         _cubeSetPoint.y = y;
         _cubeSetPoint.z = z;
-        _cubeController.SetPosition();
+
     }
 
     private void CreateCube()
     {
         GameObject cube = Instantiate(_cubePrefab);
         _cubeController = cube.GetComponent<CubeController>();
-        _cubeSetPoint = _cubeController.SetPoint;
+
+        //잘못된 값 대입으로 수정
+        _cubeController.SetPoint = _cubeSetPoint;
+
+        //Controller 컴포넌트 가져온 후 참조하도록 위치 변경
+        _cubeController.SetPosition();
     }
 }
